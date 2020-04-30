@@ -2,7 +2,7 @@ let slideIndex = 2;
 let num = 1;
 let lastImgNum;
 var fs = require('fs');
-var files = fs.readdirSync('videos/feature work/');
+var files = fs.readdirSync('videos/feature_work/');
 
 lastImgNum = files.length;
 
@@ -72,6 +72,6 @@ function showSlides(n) {
     descr = document.getElementById(videoName[4].toLowerCase());
     descr.style.display = "block";
     console.log(descr);
-    filename = dots[1].src.replace("thumbnail", "feature work");
+    filename = dots[1].src.replace("thumbnail", "feature_work");
     imgSrc.src = filename.replace("_thumb.jpg", ".mp4");
 }
