@@ -62,15 +62,15 @@ function showSlides(n) {
         }
         filename = files[order-1].toString();
         dots[i].src = "../videos/thumbnail/" + filename.substring(0, filename.length - 4) + "_thumb.jpg";
-        videoName = dots[i].src.match(/\("[^"]+"|[^"\/_%s]+/g);
-        descr = document.getElementById(videoName[4].toLowerCase());
+        videoName = dots[i].src.match(/\("[^"]+"|[^"\/_%:s]+/g);
+        descr = document.getElementById(videoName[7].toLowerCase());
         console.log(videoName);
-        //descr.style.display = "none";
+        descr.style.display = "none";
     }
     imgSrc.setAttribute('poster', dots[1].src);
     videoName = dots[1].src.match(/\("[^"]+"|[^"\/_%s]+/g);
-    descr = document.getElementById(videoName[4].toLowerCase());
-    //descr.style.display = "block";
+    descr = document.getElementById(videoName[7].toLowerCase());
+    descr.style.display = "block";
     console.log(descr);
     filename = dots[1].src.replace("thumbnail", "feature_work");
     imgSrc.src = filename.replace("_thumb.jpg", ".mp4");
