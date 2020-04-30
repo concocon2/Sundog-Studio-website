@@ -1,0 +1,5 @@
+watchify -t brfs js/index.js -o js/bundle.js -dv
+watchify -t brfs js/featurework.js -o js/bundlefw.js -dv
+watchify -t brfs js/workimage.js -o js/bundlewi.js -dv
+watchify -t brfs js/workgif.js -o js/bundlewg.js -dv
+watchify -t brfs js/workvideos.js -o js/bundlewv.js -dv

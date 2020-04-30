@@ -1,0 +1,28 @@
+{
+  "name": "sundog-studio-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/concocon2/Sundog-Studio-Website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/concocon2/Sundog-Studio-Website/issues"
+  },
+  "homepage": "https://github.com/concocon2/Sundog-Studio-Website#readme",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "sass": "^1.24.2"
+  },
+  "dependencies": {
+    "brfs": "^2.0.2",
+    "browserify-fs": "^1.0.0",
+    "gsap": "^3.0.4"
+  }
+}
