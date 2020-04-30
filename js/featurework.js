@@ -2,7 +2,7 @@ let slideIndex = 2;
 let num = 1;
 let lastImgNum;
 var fs = require('fs');
-var files = fs.readdirSync('../videos/feature work/');
+var files = fs.readdirSync('videos/feature work/');
 
 lastImgNum = files.length;
 
