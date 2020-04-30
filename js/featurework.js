@@ -63,7 +63,8 @@ function showSlides(n) {
         filename = files[order-1].toString();
         dots[i].src = "../videos/thumbnail/" + filename.substring(0, filename.length - 4) + "_thumb.jpg";
         videoName = dots[i].src.match(/\("[^"]+"|[^"\/_%:s]+/g);
-        descr = document.getElementById(videoName[7].toLowerCase());
+        descr = document.getElementById(videoName[6].toLowerCase());
+        console.log(videoName[6]);
         console.log(videoName);
         descr.style.display = "none";
     }
