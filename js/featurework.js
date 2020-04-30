@@ -2,7 +2,7 @@ let slideIndex = 2;
 let num = 1;
 let lastImgNum;
 var fs = require('fs');
-var files = fs.readdirSync('./videos/feature work/');
+var files = fs.readdirSync('../videos/feature work/');
 
 lastImgNum = files.length;
 
@@ -61,9 +61,10 @@ function showSlides(n) {
             order = order - lastImgNum;
         }
         filename = files[order-1].toString();
-        dots[i].src = "/videos/thumbnail/" + filename.substring(0, filename.length - 4) + "_thumb.jpg";
+        dots[i].src = "../videos/thumbnail/" + filename.substring(0, filename.length - 4) + "_thumb.jpg";
         videoName = dots[i].src.match(/\("[^"]+"|[^"\/_%s]+/g);
         descr = document.getElementById(videoName[4].toLowerCase());
+        console.log(videoName[4]);
         descr.style.display = "none";
     }
     imgSrc.setAttribute('poster', dots[1].src);
