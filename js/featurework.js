@@ -3,7 +3,17 @@ let num = 1;
 let lastImgNum;
 var fs = require('fs');
 var files = fs.readdirSync('videos/feature_work/');
-
+var vNames = ["cocobay",
+            "mrgift",
+            "volkath"];
+var videosSrc = ["https://drive.google.com/file/d/1tuCiLgo-fvuPhbgeaqCsYZ9U8j-FDqLu/preview",
+            "https://drive.google.com/file/d/1Qr-5nYrgXS3Kjt_yTPlE76WmiH8qsHeV/preview", 
+            "https://drive.google.com/file/d/1Z7Ju5Y3ve92NqccuAj8stOVilDggDS95/preview"];
+var videosDict = {
+    "https://drive.google.com/file/d/1tuCiLgo-fvuPhbgeaqCsYZ9U8j-FDqLu/preview" : "cocobay",
+    "https://drive.google.com/file/d/1Qr-5nYrgXS3Kjt_yTPlE76WmiH8qsHeV/preview" : "mrgift", 
+    "https://drive.google.com/file/d/1Z7Ju5Y3ve92NqccuAj8stOVilDggDS95/preview" : "volkath"
+};
 lastImgNum = files.length;
 
 
@@ -52,6 +62,7 @@ function showSlides(n) {
     let filename;
     let imgSrc = document.getElementById("actual_img");
     let dots = document.getElementsByClassName("small_img");
+    let vlinks = new Array(3);
     let videoName;
     let descr;
     for (i = 0; i < dots.length; i++) {
@@ -62,17 +73,18 @@ function showSlides(n) {
         }
         filename = files[order-1].toString();
         dots[i].src = "../videos/thumbnail/" + filename.substring(0, filename.length - 4) + "_thumb.jpg";
-        videoName = dots[i].src.match(/\("[^"]+"|[^"\/_%:s]+/g);
-        descr = document.getElementById(videoName[6].toLowerCase());
-        console.log(videoName[6]);
-        console.log(videoName);
+        console.log(dots[i]);
+        vlinks[i] = videosSrc[order-1];
+        //videoName = dots[i].src.match(/\("[^"]+"|[^"\/_%:]+/g);
+        descr = document.getElementById(vNames[order-1].toLowerCase());
+        console.log(vNames[order-1]);
         descr.style.display = "none";
     }
-    imgSrc.setAttribute('poster', dots[1].src);
-    videoName = dots[1].src.match(/\("[^"]+"|[^"\/_%s]+/g);
-    descr = document.getElementById(videoName[7].toLowerCase());
-    descr.style.display = "block";
+    //imgSrc.setAttribute('poster', dots[1].src);
+    videoName = dots[1].src.match(/\("[^"]+"|[^"\/_%:]+/g);
+    descr = document.getElementById(videosDict[vlinks[1]]);
     console.log(descr);
+    descr.style.display = "block";
     filename = dots[1].src.replace("thumbnail", "feature_work");
-    imgSrc.src = filename.replace("_thumb.jpg", ".mp4");
+    imgSrc.src = vlinks[1];
 }
