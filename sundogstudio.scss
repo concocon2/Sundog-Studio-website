@@ -64,6 +64,7 @@ html, body {
   margin: 0px;
   padding: 0px;
   font-family: 'roboto', Arial, sans-serif;
+  background-color: rgb(75, 75, 75);
 }
 
 
@@ -94,7 +95,6 @@ html, body {
     grid-template-columns: 2fr 1fr 1fr 1fr;
     grid-template-rows: 50px;
     list-style: none;
-    
     li {
       display: inline-grid;
       place-items: center;
@@ -171,6 +171,7 @@ html, body {
 
 
 nav {
+  z-index: 1;
   grid-column: 1 / span 3;
   @include desktop {
     width: 100%;
@@ -325,10 +326,11 @@ nav {
 }
 
 @mixin small-grid {
-  height: 90%;
+  width: auto;
+  height: auto;
   display: grid;
-  grid-template-columns: 3fr;
-  grid-template-rows: 80% auto 10%;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto;
 }
 
 @mixin main-mix {
@@ -362,6 +364,7 @@ main {
   white-space: nowrap;
   line-height: 1.5;
   color: white;
+  z-index: 1;
   .studio-name {
     font-weight: bold;
     font-size: 4em;
@@ -406,7 +409,7 @@ main {
   bottom: 0;
   top: 0;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
   @include mobile {
     display: none;
     position: relative;
@@ -422,6 +425,7 @@ main {
   margin-top: 0;
   height: 100%;
   justify-items: center;
+  z-index: 1;
   .about-content {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0,0,0,0.7),rgba(0,0,0,1));
     align-self: end;
@@ -565,22 +569,34 @@ main {
 }
 
 .fwmain {
+  display: grid;
+  justify-content: center;
+
   @include mobile {
     padding-top: 50px;
     @include small-grid;
   }
-  display: grid;
   @include tablet { 
     @include small-grid;
   }
-  @include desktop { 
-    margin: 0;
-    height: 92%;
+  @include desktop {
+    max-height: 100%; 
     display: grid;
     grid-template-columns: 70% 30%;
-    grid-template-rows: 70% 100px;
+    grid-template-rows: 100%;
   }
-  justify-content: center;
+
+  .left-panel {
+    display: grid;
+    grid-template-rows: 480px 100px;
+    height: 600px;
+    @include desktop() {
+      margin: 2%;
+    }
+    margin: 2% 0;
+    background-color: white;
+    box-shadow: 1px -1px 10px rgb(48, 48, 48), -1px -1px 10px rgb(48, 48, 48);
+  }
 
   .big_img {
     grid-column: 1 / 2;
@@ -602,10 +618,10 @@ main {
 
   .thumb_img {
     grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-row: 2 ;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: auto;
     grid-auto-flow: row;
     grid-gap: .5%;
     
@@ -676,12 +692,30 @@ main {
   .descr {
     font-family: 'roboto', sans-serif;
     font-weight: 200;
-    margin: 1.5vw;
+    display: inline-grid;
+    //grid-column: 2;
+    @include desktop{
+      margin: 4.5% 4.5% 6% 0;
+      height: 600px;
+    }
+    padding: 4.5% 0px;
     line-height: 1.4em;
+    background-color: white;
+    box-shadow: 1px -1px 10px rgb(48, 48, 48), -1px -1px 10px rgb(48, 48, 48);
     h {
+      padding: 4.5%;
       font-size: 1.4em;
       text-transform: uppercase;
       font-weight: bold;
+    }
+    .job-info, .job-des {
+      margin: 20px 0px;
+      padding: 2% 4.5%;
+    }
+    .job-info {
+      background: black;
+      color: white;
+      text-shadow: 0px 0px 2px white;
     }
   }
 }
